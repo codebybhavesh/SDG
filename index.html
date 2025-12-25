@@ -10,9 +10,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        #leaf-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+    <!-- Leaf Animation Canvas -->
+    <canvas id="leaf-canvas"></canvas>
+    
     <!-- Header & Navigation -->
     <header class="header" id="header">
         <div class="container">
@@ -25,6 +39,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link active">Home</a></li>
                     <li><a href="plants.html" class="nav-link">Plants & Products</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                     <li><a href="about.html" class="nav-link">About Us</a></li>
                     <li><a href="services.html" class="nav-link">Services</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact</a></li>
@@ -402,6 +417,96 @@
     </a>
 
     <!-- Scripts -->
+    <script>
+        // Leaf Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('leaf-canvas');
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            
+            // Position camera
+            camera.position.z = 30;
+            
+            // Create leaves
+            const leaves = [];
+            const leafCount = 20;
+            const leafGeometry = new THREE.SphereGeometry(0.5, 4, 4);
+            const leafMaterial = new THREE.MeshBasicMaterial({ 
+                color: 0x4CAF50,
+                transparent: true,
+                opacity: 0.7
+            });
+            
+            for (let i = 0; i < leafCount; i++) {
+                const leaf = new THREE.Mesh(leafGeometry, leafMaterial);
+                
+                // Random position
+                leaf.position.x = Math.random() * 80 - 40;
+                leaf.position.y = Math.random() * 80 - 40;
+                leaf.position.z = Math.random() * 100 - 50;
+                
+                // Random size
+                const size = Math.random() * 0.8 + 0.5;
+                leaf.scale.set(size, size, size);
+                
+                // Random rotation
+                leaf.rotation.set(
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI,
+                    Math.random() * Math.PI
+                );
+                
+                // Store original position for floating effect
+                leaf.userData = {
+                    originalY: leaf.position.y,
+                    speed: Math.random() * 0.02 + 0.01,
+                    rotationSpeed: Math.random() * 0.02 + 0.01
+                };
+                
+                scene.add(leaf);
+                leaves.push(leaf);
+            }
+            
+            // Handle window resize
+            function onWindowResize() {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+            
+            window.addEventListener('resize', onWindowResize, false);
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                // Animate leaves
+                const time = Date.now() * 0.001;
+                
+                leaves.forEach((leaf, i) => {
+                    // Floating up and down
+                    leaf.position.y = leaf.userData.originalY + Math.sin(time * leaf.userData.speed * 2) * 2;
+                    
+                    // Slight rotation
+                    leaf.rotation.x += leaf.userData.rotationSpeed * 0.5;
+                    leaf.rotation.y += leaf.userData.rotationSpeed * 0.3;
+                    
+                    // Reset position if leaves go off screen
+                    if (leaf.position.z > 50) {
+                        leaf.position.z = -50;
+                    }
+                });
+                
+                renderer.render(scene, camera);
+            }
+            
+            // Initial render
+            onWindowResize();
+            animate();
+        });
+    </script>
+
     <script src="js/main.js"></script>
     <script>
         // Mobile menu toggle

@@ -140,18 +140,6 @@ section {
     z-index: 1;
 }
 
-/* Liquid Ether Background for About Section */
-.about-animated-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-    background: linear-gradient(135deg, rgba(241, 248, 233, 0.3) 0%, rgba(232, 245, 233, 0.2) 100%);
-}
 
 /* Remove old blob styles since we're using WebGL now */
 .liquid-blob {
