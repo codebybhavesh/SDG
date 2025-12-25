@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Durvankur Greens - Premium Nursery & Garden Center</title>
+    <meta name="description" content="Shree Durvankur Greens - Your trusted source for quality plants, gardening supplies, and landscaping services. We grow with care, nurture with love.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="#home" class="logo">
+                    <img src="images/logo/logo.png" alt="Shree Durvankur Greens" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#plants" class="nav-link">Plants & Products</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="hero-video" poster="images/hero-fallback.jpg">
+                <source src="nursery_video.mp4" type="video/mp4">
+                <!-- Fallback image will be shown if video can't load -->
+                <img src="images/hero-fallback.jpg" alt="Nursery background" style="width: 100%; height: 100%; object-fit: cover;">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 id="heroTitle" class="split-text">
+                Shree Durvankur Greens
+                Growing Green, Nurturing Nature
+            </h1>
+            <p>Discover the beauty of nature with our premium quality plants and expert gardening solutions</p>
+            <div class="cta-buttons">
+                <a href="#plants" class="btn btn-primary">Explore Plants</a>
+                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plants & Products Section -->
+    <section class="plants" id="plants">
+        <canvas id="particles-canvas" class="particles-canvas"></canvas>
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Plants & Products</h2>
+                <p>Discover our wide variety of healthy, beautiful plants</p>
+            </div>
+            <div class="plant-categories">
+                <button class="category-btn active" data-category="all">All Plants</button>
+                <button class="category-btn" data-category="indoor">Indoor Plants</button>
+                <button class="category-btn" data-category="outdoor">Outdoor Plants</button>
+                <button class="category-btn" data-category="flowering">Flowering Plants</button>
+                <button class="category-btn" data-category="medicinal">Medicinal Plants</button>
+            </div>
+            <div class="plant-grid" id="plantContainer">
+                <!-- Plant cards will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <div class="about-animated-bg" id="liquidEtherContainer">
+            <!-- Liquid Ether Canvas will be inserted here -->
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>About Shree Durvankur Greens</h2>
+                <p>Your trusted partner in green living since 2010</p>
+            </div>
+            <div class="about-cards-grid">
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <h3 class="about-card-title">Our Passion</h3>
+                        <p class="about-text">
+                            Shree Durvankur Greens is built on a deep passion for plants and a commitment to nurturing greener, 
+                            healthier spaces. Established in 2010 as a family-run nursery, we have grown into a trusted 
+                            destination for plant lovers, gardeners, and landscape enthusiasts.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <h3 class="about-card-title">Quality Care</h3>
+                        <p class="about-text">
+                            We believe that plants have the power to transform not just spaces, but lives. Every plant at 
+                            Shree Durvankur Greens is carefully selected, grown, and nurtured with attention and expertise 
+                            to ensure optimal health and long-lasting growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-card about-card-wide">
+                    <div class="about-card-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <h3 class="about-card-title">Sustainable Practices</h3>
+                        <p class="about-text">
+                            Sustainability lies at the heart of everything we do. By adopting eco-friendly practices and 
+                            responsible growing methods, we strive to contribute to a greener tomorrow while delivering 
+                            the highest quality plants to our customers.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-card about-card-wide">
+                    <div class="about-card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="about-card-content">
+                        <h3 class="about-card-title">Expert Support</h3>
+                        <p class="about-text">
+                            With expert guidance and personalized care, we are here to support all your gardening needs—whether 
+                            for homes, offices, or commercial spaces. At Shree Durvankur Greens, we don't just grow plants; 
+                            we cultivate trust, quality, and a love for nature.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-bg-animation">
+            <div class="services-bg-circle services-bg-circle-1"></div>
+            <div class="services-bg-circle services-bg-circle-2"></div>
+            <div class="services-bg-circle services-bg-circle-3"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for all your gardening needs</p>
+            </div>
+            <div class="services-slider-wrapper">
+                <button class="slider-btn slider-btn-prev" id="servicesPrevBtn" aria-label="Previous service">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="services-slider-container">
+                    <div class="services-slider-track" id="servicesSliderTrack">
+                        <div class="service-card">
+                            <div class="service-card-inner">
+                                <div class="service-icon">
+                                    <div class="service-icon-bg"></div>
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <h3>Nursery Plant Supply</h3>
+                                <p>Wide variety of healthy plants for every space and need</p>
+                                <div class="service-card-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card-inner">
+                                <div class="service-icon">
+                                    <div class="service-icon-bg"></div>
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>Garden Setup</h3>
+                                <p>Professional garden design and installation services</p>
+                                <div class="service-card-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card-inner">
+                                <div class="service-icon">
+                                    <div class="service-icon-bg"></div>
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <h3>Bulk Supply</h3>
+                                <p>Wholesale plants for businesses and large projects</p>
+                                <div class="service-card-overlay"></div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-card-inner">
+                                <div class="service-icon">
+                                    <div class="service-icon-bg"></div>
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>Landscaping</h3>
+                                <p>Transform your outdoor spaces with our expertise</p>
+                                <div class="service-card-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn slider-btn-next" id="servicesNextBtn" aria-label="Next service">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+ 
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="why-choose-bg-animation">
+            <div class="why-choose-bg-shape why-choose-bg-shape-1"></div>
+            <div class="why-choose-bg-shape why-choose-bg-shape-2"></div>
+            <div class="why-choose-bg-shape why-choose-bg-shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Shree Durvankur Greens?</h2>
+                <p>Your satisfaction is our top priority</p>
+            </div>
+            <div class="features-slider-wrapper">
+                <button class="slider-btn slider-btn-prev" id="featuresPrevBtn" aria-label="Previous feature">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="features-slider-container">
+                    <div class="features-slider-track" id="featuresSliderTrack">
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>Premium Quality</h3>
+                                <p>Only the healthiest plants from trusted growers</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-rupee-sign"></i>
+                                </div>
+                                <h3>Affordable Pricing</h3>
+                                <p>Competitive prices for premium quality</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h3>Expert Team</h3>
+                                <p>Knowledgeable staff to guide you</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <h3>Eco-Friendly</h3>
+                                <p>Sustainable practices for a better planet</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h3>Fast Delivery</h3>
+                                <p>Quick and reliable delivery service to your doorstep</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3>24/7 Support</h3>
+                                <p>Round-the-clock customer support for all your queries</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-content">
+                                <div class="feature-icon-wrapper">
+                                    <div class="feature-icon-bg"></div>
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <h3>Certified Quality</h3>
+                                <p>All plants come with quality certification and guarantee</p>
+                                <div class="feature-hover-effect"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn slider-btn-next" id="featuresNextBtn" aria-label="Next feature">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Customers Say</h2>
+                <p>Real experiences from happy customers</p>
+            </div>
+            <div class="testimonials-slider-container">
+                <div class="testimonials-slider-track" id="testimonialsSliderTrack">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"I've been buying plants from Shree Durvankur Greens for over 2 years now. The quality is exceptional and their customer service is outstanding. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Rajesh Kumar</h4>
+                                    <span>Regular Customer</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"The garden setup service was fantastic! They transformed our balcony into a beautiful green space. The team was professional and knowledgeable."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Priya Sharma</h4>
+                                    <span>Homeowner</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Best nursery in the city! The plants are healthy, prices are reasonable, and delivery is always on time. My office space looks amazing with their indoor plants."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Amit Patel</h4>
+                                    <span>Business Owner</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Their expert team helped me choose the perfect plants for my home. The care instructions were clear and all my plants are thriving. Thank you!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Sunita Mehta</h4>
+                                    <span>Plant Enthusiast</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"I ordered plants for bulk supply for my landscaping project. The quality exceeded my expectations and the pricing was very competitive. Great service!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Vikram Singh</h4>
+                                    <span>Landscape Designer</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"The monthly plant subscription is amazing! I get beautiful, healthy plants delivered to my door every month. It's been a year and I'm still a happy customer."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Neha Gupta</h4>
+                                    <span>Loyal Subscriber</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"Their customer support is outstanding! When one of my plants had an issue, they immediately sent a replacement and provided care tips. Truly care about their customers."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Rahul Verma</h4>
+                                    <span>Plant Enthusiast</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-quote">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">"The workshop on plant care was incredibly informative! I learned so much about keeping my indoor plants healthy. The experts at Shree Durvankur Greens are truly knowledgeable."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ananya Desai</h4>
+                                    <span>Workshop Attendee</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Green Valley Road, Plantation City, PC 400001</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98765 43210</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@shreedurvankurgreens.com</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5956153554495!2d72.87791131538467!3d19.12538725572661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9c676018c43%3A0x75f29c4201ccb37d!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo/logo.png" alt="Shree Durvankur Greens" class="footer-logo-img">
+                    </div>
+                    <p>Growing green, nurturing nature. Your trusted partner for quality plants and gardening solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#plants">Plants & Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Green Valley Road, Plantation City, PC 400001</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@shreedurvankurgreens.com</li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Shree Durvankur Greens. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/liquidEther.js"></script>
+</body>
+</html>
