@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants & Products - Shree Durvankur Greens</title>
+    <meta name="description" content="Browse our wide selection of plants and gardening products at Shree Durvankur Greens.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Plants Page Specific Styles */
+        .page-header {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            padding: 0 2rem;
+            margin-bottom: 4rem; /* Add space below hero section */
+        }
+        
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 40, 20, 0.5), rgba(0, 60, 30, 0.7));
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+        .divider {
+            width: 100px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        .divider:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.5);
+            left: 20%;
+            bottom: -8px;
+        }
+        .hero-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2e7d32;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        .cta-button:hover {
+            background: #1b5e20;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+            padding: 2rem 0;
+        }
+        .header.scrolled {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        .header.scrolled .nav-link {
+            color: #333;
+        }
+        .header.scrolled .logo-img {
+            height: 150px;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-header {
+                height: 50vh;
+                min-height: 350px;
+                margin-bottom: 3rem;
+            }
+            .hero-title {
+                font-size: 3.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.6rem;
+                padding: 0 1rem;
+            }
+            
+            .cta-button {
+                padding: 1rem 2.5rem;
+                font-size: 1.4rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .page-header {
+                height: 45vh;
+                min-height: 300px;
+                margin-bottom: 2.5rem;
+            }
+            .hero-title {
+                font-size: 2.6rem;
+            }
+            .filter-buttons {
+                gap: 0.8rem;
+                padding: 0 1rem;
+                margin: 2.5rem 0 3rem;
+            }
+            .category-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+        }
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 3rem 0 4rem;
+            padding: 0 2rem;
+        }
+
+        .category-btn {
+            padding: 0.9rem 2.2rem;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active,
+        .category-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Plants Grid */
+        .plants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+
+        .plant-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .plant-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .plant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .plant-card:hover .plant-image img {
+            transform: scale(1.05);
+        }
+
+        .plant-info {
+            padding: 2rem;
+        }
+
+        .plant-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .plant-category {
+            display: inline-block;
+            background: var(--light-bg);
+            color: var(--primary-color);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .plant-price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .btn-add-to-cart {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-add-to-cart:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .plants-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+                gap: 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .filter-buttons {
+                gap: 1rem;
+            }
+
+            .category-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        // Smooth scroll for CTA button
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/logo.png" alt="Shree Durvankur Greens" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="plants.html" class="nav-link active">Plants & Products</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="video-container">
+            <video autoplay muted loop playsinline id="plants-video">
+                <source src="plants.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Our Premium Plants Collection</h1>
+            <div class="divider"></div>
+            <p class="hero-subtitle">Discover a wide variety of indoor and outdoor plants, carefully nurtured to bring life and beauty to your space.</p>
+            <a href="#plants-grid" class="cta-button">Explore Plants</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Plants Filter -->
+        <div class="filter-buttons">
+            <button class="category-btn active" data-category="all">All Plants</button>
+            <button class="category-btn" data-category="indoor">Indoor Plants</button>
+            <button class="category-btn" data-category="outdoor">Outdoor Plants</button>
+            <button class="category-btn" data-category="flowering">Flowering Plants</button>
+            <button class="category-btn" data-category="medicinal">Medicinal Plants</button>
+        </div>
+
+        <!-- Plants Grid -->
+        <div class="plants-grid" id="plantContainer">
+            <!-- Plant cards will be dynamically loaded here by JavaScript -->
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/peace-lily.jpeg" alt="Peace Lily">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Indoor</span>
+                    <h3>Peace Lily</h3>
+                    <p class="plant-price">₹299</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/snake-plant.jpg" alt="Snake Plant">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Indoor</span>
+                    <h3>Snake Plant</h3>
+                    <p class="plant-price">₹249</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/money-plant.jpg" alt="Money Plant">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Indoor</span>
+                    <h3>Money Plant</h3>
+                    <p class="plant-price">₹179</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/rose-plant.jpg" alt="Rose Plant">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Outdoor</span>
+                    <h3>Rose Plant</h3>
+                    <p class="plant-price">₹199</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/jasmine.jpg" alt="Jasmine">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Flowering</span>
+                    <h3>Jasmine</h3>
+                    <p class="plant-price">₹349</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="plant-card">
+                <div class="plant-image">
+                    <img src="images/plants/tulsi.webp" alt="Tulsi">
+                </div>
+                <div class="plant-info">
+                    <span class="plant-category">Medicinal</span>
+                    <h3>Tulsi (Holy Basil)</h3>
+                    <p class="plant-price">₹149</p>
+                    <button class="btn-add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta-section" style="background-color: #f8f9fa; padding: 8rem 0; text-align: center; margin-top: 5rem;">
+        <div class="container">
+            <h2 style="font-size: 3.5rem; margin-bottom: 2rem; color: var(--text-dark);">Can't Find What You're Looking For?</h2>
+            <p style="font-size: 1.8rem; color: var(--text-light); max-width: 700px; margin: 0 auto 3rem;">Contact us for special orders or inquiries about specific plants.</p>
+            <a href="index.html#contact" class="btn" style="display: inline-block; background: var(--primary-color); color: white; padding: 1.2rem 3.5rem; border-radius: 50px; font-size: 1.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; text-decoration: none;">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: #2c3e50; color: white; padding: 5rem 0 2rem; margin-top: 5rem;">
+        <div class="container">
+            <p style="text-align: center; font-size: 1.4rem; color: rgba(255, 255, 255, 0.8);">&copy; <span id="currentYear"></span> Shree Durvankur Greens. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.querySelector('.nav-links');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.category-btn');
+        const plantCards = document.querySelectorAll('.plant-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-category');
+                
+                plantCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const category = card.querySelector('.plant-category').textContent.toLowerCase();
+                        if (category === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

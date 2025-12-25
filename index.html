@@ -7,7 +7,9 @@
     <meta name="description" content="Shree Durvankur Greens - Your trusted source for quality plants, gardening supplies, and landscaping services. We grow with care, nurture with love.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
@@ -15,17 +17,17 @@
     <header class="header" id="header">
         <div class="container">
             <div class="logo-container">
-                <a href="#home" class="logo">
+                <a href="index.html" class="logo">
                     <img src="images/logo/logo.png" alt="Shree Durvankur Greens" class="logo-img">
                 </a>
             </div>
             <nav class="nav" id="navbar">
                 <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#plants" class="nav-link">Plants & Products</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="plants.html" class="nav-link">Plants & Products</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
                     <span class="bar"></span>
@@ -45,284 +47,24 @@
                 <img src="images/hero-fallback.jpg" alt="Nursery background" style="width: 100%; height: 100%; object-fit: cover;">
                 Your browser does not support the video tag.
             </video>
-            <div class="overlay"></div>
         </div>
         <div class="hero-content">
-            <h1 id="heroTitle" class="split-text">
-                Shree Durvankur Greens
-                Growing Green, Nurturing Nature
-            </h1>
-            <p>Discover the beauty of nature with our premium quality plants and expert gardening solutions</p>
-            <div class="cta-buttons">
-                <a href="#plants" class="btn btn-primary">Explore Plants</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Plants & Products Section -->
-    <section class="plants" id="plants">
-        <canvas id="particles-canvas" class="particles-canvas"></canvas>
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Plants & Products</h2>
-                <p>Discover our wide variety of healthy, beautiful plants</p>
-            </div>
-            <div class="plant-categories">
-                <button class="category-btn active" data-category="all">All Plants</button>
-                <button class="category-btn" data-category="indoor">Indoor Plants</button>
-                <button class="category-btn" data-category="outdoor">Outdoor Plants</button>
-                <button class="category-btn" data-category="flowering">Flowering Plants</button>
-                <button class="category-btn" data-category="medicinal">Medicinal Plants</button>
-            </div>
-            <div class="plant-grid" id="plantContainer">
-                <!-- Plant cards will be dynamically loaded here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section class="about-section" id="about">
-        <div class="about-animated-bg" id="liquidEtherContainer">
-            <!-- Liquid Ether Canvas will be inserted here -->
-        </div>
-        <div class="container">
-            <div class="section-header">
-                <h2>About Shree Durvankur Greens</h2>
-                <p>Your trusted partner in green living since 2010</p>
-            </div>
-            <div class="about-cards-grid">
-                <div class="about-card">
-                    <div class="about-card-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <div class="about-card-content">
-                        <h3 class="about-card-title">Our Passion</h3>
-                        <p class="about-text">
-                            Shree Durvankur Greens is built on a deep passion for plants and a commitment to nurturing greener, 
-                            healthier spaces. Established in 2010 as a family-run nursery, we have grown into a trusted 
-                            destination for plant lovers, gardeners, and landscape enthusiasts.
-                        </p>
-                    </div>
-                </div>
-                <div class="about-card">
-                    <div class="about-card-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="about-card-content">
-                        <h3 class="about-card-title">Quality Care</h3>
-                        <p class="about-text">
-                            We believe that plants have the power to transform not just spaces, but lives. Every plant at 
-                            Shree Durvankur Greens is carefully selected, grown, and nurtured with attention and expertise 
-                            to ensure optimal health and long-lasting growth.
-                        </p>
-                    </div>
-                </div>
-                <div class="about-card about-card-wide">
-                    <div class="about-card-icon">
-                        <i class="fas fa-recycle"></i>
-                    </div>
-                    <div class="about-card-content">
-                        <h3 class="about-card-title">Sustainable Practices</h3>
-                        <p class="about-text">
-                            Sustainability lies at the heart of everything we do. By adopting eco-friendly practices and 
-                            responsible growing methods, we strive to contribute to a greener tomorrow while delivering 
-                            the highest quality plants to our customers.
-                        </p>
-                    </div>
-                </div>
-                <div class="about-card about-card-wide">
-                    <div class="about-card-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="about-card-content">
-                        <h3 class="about-card-title">Expert Support</h3>
-                        <p class="about-text">
-                            With expert guidance and personalized care, we are here to support all your gardening needs—whether 
-                            for homes, offices, or commercial spaces. At Shree Durvankur Greens, we don't just grow plants; 
-                            we cultivate trust, quality, and a love for nature.
-                        </p>
-                    </div>
+            <div class="hero-text-wrapper">
+                <h1 id="heroTitle" class="split-text">
+                    Shree Durvankur Greens
+                    Growing Green, Nurturing Nature
+                </h1>
+                <p>Discover the beauty of nature with our premium quality plants and expert gardening solutions</p>
+                <div class="cta-buttons">
+                    <a href="#plants" class="btn btn-primary">Explore Plants</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-bg-animation">
-            <div class="services-bg-circle services-bg-circle-1"></div>
-            <div class="services-bg-circle services-bg-circle-2"></div>
-            <div class="services-bg-circle services-bg-circle-3"></div>
-        </div>
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Services</h2>
-                <p>Comprehensive solutions for all your gardening needs</p>
-            </div>
-            <div class="services-slider-wrapper">
-                <button class="slider-btn slider-btn-prev" id="servicesPrevBtn" aria-label="Previous service">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="services-slider-container">
-                    <div class="services-slider-track" id="servicesSliderTrack">
-                        <div class="service-card">
-                            <div class="service-card-inner">
-                                <div class="service-icon">
-                                    <div class="service-icon-bg"></div>
-                                    <i class="fas fa-tree"></i>
-                                </div>
-                                <h3>Nursery Plant Supply</h3>
-                                <p>Wide variety of healthy plants for every space and need</p>
-                                <div class="service-card-overlay"></div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-card-inner">
-                                <div class="service-icon">
-                                    <div class="service-icon-bg"></div>
-                                    <i class="fas fa-home"></i>
-                                </div>
-                                <h3>Garden Setup</h3>
-                                <p>Professional garden design and installation services</p>
-                                <div class="service-card-overlay"></div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-card-inner">
-                                <div class="service-icon">
-                                    <div class="service-icon-bg"></div>
-                                    <i class="fas fa-truck"></i>
-                                </div>
-                                <h3>Bulk Supply</h3>
-                                <p>Wholesale plants for businesses and large projects</p>
-                                <div class="service-card-overlay"></div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="service-card-inner">
-                                <div class="service-icon">
-                                    <div class="service-icon-bg"></div>
-                                    <i class="fas fa-paint-brush"></i>
-                                </div>
-                                <h3>Landscaping</h3>
-                                <p>Transform your outdoor spaces with our expertise</p>
-                                <div class="service-card-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="slider-btn slider-btn-next" id="servicesNextBtn" aria-label="Next service">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
 
- 
-    <!-- Why Choose Us Section -->
-    <section class="why-choose-us">
-        <div class="why-choose-bg-animation">
-            <div class="why-choose-bg-shape why-choose-bg-shape-1"></div>
-            <div class="why-choose-bg-shape why-choose-bg-shape-2"></div>
-            <div class="why-choose-bg-shape why-choose-bg-shape-3"></div>
-        </div>
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Shree Durvankur Greens?</h2>
-                <p>Your satisfaction is our top priority</p>
-            </div>
-            <div class="features-slider-wrapper">
-                <button class="slider-btn slider-btn-prev" id="featuresPrevBtn" aria-label="Previous feature">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="features-slider-container">
-                    <div class="features-slider-track" id="featuresSliderTrack">
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <h3>Premium Quality</h3>
-                                <p>Only the healthiest plants from trusted growers</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-rupee-sign"></i>
-                                </div>
-                                <h3>Affordable Pricing</h3>
-                                <p>Competitive prices for premium quality</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                <h3>Expert Team</h3>
-                                <p>Knowledgeable staff to guide you</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-recycle"></i>
-                                </div>
-                                <h3>Eco-Friendly</h3>
-                                <p>Sustainable practices for a better planet</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-shipping-fast"></i>
-                                </div>
-                                <h3>Fast Delivery</h3>
-                                <p>Quick and reliable delivery service to your doorstep</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-headset"></i>
-                                </div>
-                                <h3>24/7 Support</h3>
-                                <p>Round-the-clock customer support for all your queries</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-content">
-                                <div class="feature-icon-wrapper">
-                                    <div class="feature-icon-bg"></div>
-                                    <i class="fas fa-certificate"></i>
-                                </div>
-                                <h3>Certified Quality</h3>
-                                <p>All plants come with quality certification and guarantee</p>
-                                <div class="feature-hover-effect"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="slider-btn slider-btn-next" id="featuresNextBtn" aria-label="Next feature">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Testimonials Section -->
     <section class="testimonials">
@@ -661,6 +403,17 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/liquidEther.js"></script>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

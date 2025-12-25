@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Shree Durvankur Greens</title>
+    <meta name="description" content="Explore our professional gardening and landscaping services at Shree Durvankur Greens.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Geom:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Services Section */
+    .services-section {
+        background-color: #f4faf6;
+        padding: 80px 0;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        padding: 20px 0;
+    }
+    .service-card {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        transition: all 0.3s ease;
+    }
+    .service-icon {
+        width: 80px;
+        height: 80px;
+        background: #e8f5e9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.3s ease;
+    }
+    .service-card h3 {
+        color: #1b5e20;
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+    .service-card p {
+        color: #555;
+        margin-bottom: 0;
+        line-height: 1.6;
+    }
+    /* Hover Effects */
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    .service-card:hover .service-icon {
+        background: #c8e6c9;
+    }
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .service-card {
+            padding: 24px;
+        }
+    }
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .service-card {
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0;
+    }
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+    .service-card:nth-child(4) { animation-delay: 0.4s; }
+    .service-card:nth-child(5) { animation-delay: 0.5s; }
+    .service-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/logo.png" alt="Shree Durvankur Greens" class="logo-img">
+                </a>
+            </div>
+            <nav class="nav" id="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="plants.html" class="nav-link">Plants & Products</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Professional gardening and landscaping solutions for your green spaces</p>
+        </div>
+    </section>
+
+    <!-- Services Content -->
+    
+        <section class="services-section" style="background-color: #f4faf6; padding: 80px 0;">
+        <div class="container">
+            <div class="services-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 20px 0;">
+                <!-- Service Card 1 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-tree" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Landscape Design</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">Transform your outdoor space with our expert landscape design services. We create beautiful, functional gardens tailored to your needs.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-leaf" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Garden Maintenance</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">Keep your garden looking its best with our professional maintenance services, including pruning, weeding, and seasonal care.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-tint" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Irrigation Solutions</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">Efficient watering systems designed to keep your plants healthy while conserving water and saving you time.</p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-seedling" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Planting Services</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">From small plants to large trees, our experts will help you select and plant the perfect greenery for your space.</p>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-spa" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Lawn Care</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">Professional lawn care services including mowing, fertilizing, and pest control for a lush, healthy lawn.</p>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="service-card" style="background: white; border-radius: 16px; padding: 32px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.06); transition: all 0.3s ease;">
+                    <div class="service-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; transition: all 0.3s ease;">
+                        <i class="fas fa-home" style="font-size: 32px; color: #1b5e20;"></i>
+                    </div>
+                    <h3 style="color: #1b5e20; margin-bottom: 16px; font-weight: 600;">Indoor Plant Care</h3>
+                    <p style="color: #555; margin-bottom: 0; line-height: 1.6;">Let us help you select and maintain beautiful indoor plants that thrive in your home or office environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo/logo.png" alt="Shree Durvankur Greens">
+                    </div>
+                    <p>Your trusted source for quality plants, gardening supplies, and landscaping services since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="plants.html">Plants & Products</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Green Valley, Plant City, PC 123456</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@shreedurvankurgreens.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Join Our Green Community</h3>
+                    <p>Subscribe to our newsletter for gardening tips, special offers, and more!</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Shree Durvankur Greens. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms-conditions.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
