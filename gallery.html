@@ -38,15 +38,17 @@
         .gallery-page .hamburger {
             display: none;
             cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
         }
         
         .gallery-page .hamburger .bar {
             display: block;
             width: 25px;
             height: 3px;
-            margin: 5px 0;
-            background-color: var(--nav-text);
-            transition: var(--transition);
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: #2c3e50;
         }
 
         * {
@@ -193,8 +195,17 @@
             color: #ffffff !important;
         }
 
-        body.gallery-page .hamburger .bar {
+        .gallery-page .hamburger .bar {
+            background-color: #2c3e50 !important;
+        }
+
+        /* Make hamburger visible over video on gallery page (white bars), and switch to dark when active */
+        .gallery-page .hamburger .bar {
             background-color: #ffffff !important;
+        }
+
+        .gallery-page .hamburger.active .bar {
+            background-color: #2c3e50 !important;
         }
 
         /* Nudge navbar links slightly left on gallery page only */
@@ -202,9 +213,7 @@
             padding-right: 20px !important;
         }
 
-        body.gallery-page .nav .nav-links {
-            transform: translateX(105px);
-        }
+        
 
         /* Gallery Section */
         .gallery-section {
@@ -399,6 +408,133 @@
     }
 }
 
+/* Additional mobile tweaks for better responsiveness on small devices */
+@media (max-width: 480px) {
+    .gallery-hero {
+        height: 60vh;
+        min-height: 320px;
+        padding-top: 40px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 64px;
+        width: auto;
+    }
+
+    .hero-content {
+        padding: 0 12px;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    body.gallery-page .nav .nav-links {
+        transform: none;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .gallery-page .hamburger {
+        display: block;
+    }
+
+    .slider {
+        height: 40vh;
+        min-height: 220px;
+        border-radius: 10px;
+        padding: 0.5rem;
+    }
+
+    .slide-content {
+        padding: 0.8rem;
+        bottom: 6px;
+        text-align: left;
+    }
+
+    .slide-content h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .slide-content p {
+        font-size: 0.75rem;
+        max-width: none;
+    }
+
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .slider-dots {
+        bottom: 10px;
+        gap: 8px;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    .logo-text { display:none; }
+}
+
+header.header {
+    position: relative;
+    z-index: 10000;
+    background: transparent;
+}
+
+@media (min-width: 769px) {
+    header.header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: transparent;
+        z-index: 10000;
+        padding-top: 12px;
+    }
+
+    /* Keep nav inline on desktop and make sure links contrast over hero */
+    .gallery-page .nav {
+        background: transparent;
+    }
+    .gallery-page .nav .nav-links {
+        transform: translateX(105px);
+        display: flex !important;
+        position: static;
+        background: transparent;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    header.header {
+        /* Keep header fixed on mobile so it sits above page content */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.55);
+        z-index: 10001;
+    }
+}
+
+
+
+/* Hamburger active state (X icon) */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 576px) {
     .slider {
         height: 45vh;
@@ -456,6 +592,7 @@
         
         <!-- Slider Container -->
         <div class="hero-content">
+            <h1>Our Gallery</h1>
             <div class="slider-container">
                 <div class="slider">
                     <div class="slider-track" id="sliderTrack">
@@ -650,6 +787,109 @@
             
             sliderTrack.addEventListener('mouseleave', () => {
                 resetAutoSlide();
+            });
+        });
+    </script>
+
+    <script>
+        // Mobile hamburger toggle for gallery page with ARIA support
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const nav = document.getElementById('navbar');
+            const navLinks = nav ? nav.querySelectorAll('.nav-link') : [];
+            const navMenu = document.querySelector('.nav-links');
+            const body = document.body;
+
+            if (!hamburger || !nav) return;
+
+            // accessibility attributes
+            hamburger.setAttribute('role', 'button');
+            hamburger.setAttribute('aria-controls', 'navbar');
+            hamburger.setAttribute('aria-expanded', 'false');
+
+            function setExpanded(val) {
+                hamburger.setAttribute('aria-expanded', val ? 'true' : 'false');
+            }
+
+            function openNav() {
+                navMenu.classList.add('active');
+                // show and lock background scroll
+                navMenu.style.display = 'flex';
+                body.style.overflow = 'hidden';
+                hamburger.classList.add('active');
+                setExpanded(true);
+            }
+
+            function closeNav() {
+                navMenu.classList.remove('active');
+                // restore
+                navMenu.style.display = '';
+                body.style.overflow = '';
+                hamburger.classList.remove('active');
+                setExpanded(false);
+            }
+
+            function toggleNav(e) {
+                e.stopPropagation();
+                if (navMenu.classList.contains('active')) {
+                    closeNav();
+                } else {
+                    openNav();
+                }
+            }
+
+            // Toggle mobile menu
+            hamburger.addEventListener('click', toggleNav);
+
+            // Close menu when clicking on a nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    closeNav();
+                    hamburger.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+                    closeNav();
+                    hamburger.classList.remove('active');
+                }
+            });
+
+            // Handle window resize
+            function handleResize() {
+                if (window.innerWidth > 768) {
+                    // Reset styles for desktop
+                    closeNav();
+                    // allow stylesheet to control layout
+                    if (navMenu) navMenu.style.display = '';
+                    body.style.overflow = '';
+                } else {
+                    // On mobile leave control to CSS; clear inline display so classes work
+                    if (navMenu && !navMenu.classList.contains('active')) navMenu.style.display = '';
+                }
+            }
+
+            // Add resize listener
+            window.addEventListener('resize', handleResize);
+            
+            // Initial check
+            handleResize();
+            
+            // Close on ESC
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeNav();
+            });
+            
+            // Close menu when viewport grows to desktop to avoid stale open state
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 768) {
+                    closeNav();
+                    // clear inline style so desktop CSS controls layout
+                    if (navMenu) navMenu.style.display = '';
+                    hamburger.classList.remove('active');
+                }
             });
         });
     </script>

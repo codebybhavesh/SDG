@@ -3399,46 +3399,6 @@ html {
         display: block;
     }
     
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 400px;
-        height: 100vh;
-        background-color: var(--nav-bg-scrolled);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        transition: var(--nav-transition);
-        z-index: 1001;
-        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-        backdrop-filter: none;
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .nav-links li {
-        margin: 1.5rem 0;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .nav-link {
-        display: block;
-        padding: 1.2rem 0;
-        color: var(--nav-text-dark);
-        font-size: 1.8rem;
-        text-shadow: none;
-    }
-    
-    .header.scrolled .nav-link {
-        color: var(--nav-text-dark);
-    }
-    
     .hamburger.active .bar {
         background-color: var(--nav-text-dark);
     }
@@ -3469,26 +3429,39 @@ html {
         transform: translateY(-8px) rotate(-45deg);
     }
     
+    /* Mobile off-canvas menu (single system) */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .nav-links {
         position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 320px;
+        height: 100vh;
         background-color: var(--white);
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        padding: 4rem 0;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: var(--transition);
-        z-index: 999;
+        padding: 2rem;
+        transition: right 0.35s ease;
+        z-index: 1001;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.12);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
-    
+
     .nav-links.active {
-        left: 0;
+        right: 0;
     }
-    
+
     .nav-links li {
         margin: 1.5rem 0;
+        width: 100%;
+        text-align: center;
     }
     
     .hero-content h1 {
